@@ -1,0 +1,29 @@
+  name: Update Readme
+
+  on:
+    schedule:
+      - cron: '30 1 * * *'       #每天9点半执行(分 时 日 月 星期 utC时间,与北京时间有8小时(utc+8)差距)
+    workflow_dispatch:
+
+  permissions:
+    contents: write
+    pages: write
+    id-token: write
+
+  jobs:
+    update-readme:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+
+        - name: 修改readme
+          run: |
+            echo "新增一行" >>  readme.md           
+            echo "构建完成 ✅"
+
+        - name: commit回仓库
+          uses: stefanzweifel/git-auto-commit-action
+          with:
+            path: dist
+
+    
