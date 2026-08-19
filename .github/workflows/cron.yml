@@ -4,6 +4,8 @@
     schedule:
       - cron: '30 1 * * *'       #每天9点半执行(分 时 日 月 星期 utC时间,与北京时间有8小时(utc+8)差距)
     workflow_dispatch:
+    push:
+      branches: [main]          # ← 加这段：push到main也触发（调试期超好用）
 
   permissions:
     contents: write
