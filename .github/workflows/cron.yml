@@ -18,11 +18,11 @@
 
         - name: 修改readme
           run: |
-            echo "新增一行" >>  readme.md           
+            echo "新增一行" >>  README.md           
             echo "构建完成 ✅"
 
         - name: commit回仓库
-          uses: stefanzweifel/git-auto-commit-action
+          uses: stefanzweifel/git-auto-commit-action@v5
           with:
             path: dist
 
